@@ -84,7 +84,6 @@ public class AuthController {
         }
 
         // Create new user's account
-        System.out.println("creating a new user");
         User user = new User(signUpRequest.getUsername(),
                 signUpRequest.getEmail(),
                 encoder.encode(signUpRequest.getPassword()));
@@ -120,7 +119,6 @@ public class AuthController {
         }
 
         user.setRoles(roles);
-        System.out.println("saving user in db");
         userRepository.save(user);
 
         return ResponseEntity.ok(new MessageResponse("User registered successfully!"));
